@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EmpanadaReviewCS.Models.Review>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idReview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imageSrc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idRestaurant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.likes)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idReview)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdAt.Date.Year)/@Html.DisplayFor(modelItem => item.createdAt.Date.Month)/@Html.DisplayFor(modelItem => item.createdAt.Date.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Year)/@Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Month)/@Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imageSrc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idRestaurant)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.likes)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.idReview }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.idReview }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.idReview })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

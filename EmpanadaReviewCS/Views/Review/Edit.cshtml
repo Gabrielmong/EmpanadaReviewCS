@@ -1,0 +1,52 @@
+﻿@model EmpanadaReviewCS.Models.ViewModel.ReviewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+    <div class="form-horizontal">
+        <h4>ReviewModel</h4>
+        <hr />
+
+        <form action="~/Review/Update" method="post">
+            <div class="row">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.idUser)
+                @Html.HiddenFor(model => model.idReview)
+                @Html.HiddenFor(model => model.idRestaurant)
+
+                <br />
+                @Html.LabelFor(model => model.title)
+                @Html.EditorFor(model => model.title, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                <br />
+                @Html.LabelFor(model => model.description)
+                @Html.EditorFor(model => model.description, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                <br />
+                @Html.LabelFor(model => model.likes)
+                @Html.EditorFor(model => model.likes, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.likes, "", new { @class = "text-danger" })
+
+                <input type="submit" value="Save" />
+
+            </div>
+        </form>
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

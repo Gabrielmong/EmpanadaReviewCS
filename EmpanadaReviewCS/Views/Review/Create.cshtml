@@ -1,0 +1,50 @@
+﻿@model EmpanadaReviewCS.Models.ViewModel.ReviewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form action="~/Review/Save" method="post">
+        <div class="row">
+            
+            @Html.LabelFor(d => d.idUser)
+            @Html.TextBoxFor(d => d.idUser, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.idUser, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.idRating)
+            @Html.TextBoxFor(d => d.idRating, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.idRating, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.title)
+            @Html.TextBoxFor(d => d.title, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.title, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.description)
+            @Html.TextBoxFor(d => d.description, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.description, "", new { @class = "text-danger" })
+            <br />            
+            @Html.LabelFor(d => d.imageSrc)
+            @Html.TextBoxFor(d => d.imageSrc, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.imageSrc, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.idRestaurant)
+            @Html.TextBoxFor(d => d.idRestaurant, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.idRestaurant, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.likes)
+            @Html.TextBoxFor(d => d.likes, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.likes, "", new { @class = "text-danger" })
+
+            <input type="submit" value="Save" />
+
+        </div>
+    </form>
+</body>
+</html>

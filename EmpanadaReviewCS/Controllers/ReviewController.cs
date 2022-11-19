@@ -143,8 +143,15 @@ namespace EmpanadaReviewCS.Controllers
                 idRestaurant = review.idRestaurant,
                 likes = review.likes
             };
+
+
+            ViewBag.Rating = db.Ratings.Find(reviewModel.idRating).score;
+            ViewBag.UserName = db.UserEmpanadas.Find(reviewModel.idUser).userName;
+
+
             return View(reviewModel);
         }
+        
         
         
     }

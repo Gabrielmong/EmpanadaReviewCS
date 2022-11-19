@@ -13,7 +13,7 @@ namespace EmpanadaReviewCS.Controllers
 
         // GET: Review list page
         public ActionResult Index() {
-            var reviews = db.Reviews.ToList();
+            var reviews = db.Review.ToList();
             return View(reviews);
         }
 
@@ -42,7 +42,7 @@ namespace EmpanadaReviewCS.Controllers
                 idRestaurant = review.idRestaurant
             };
 
-            db.Ratings.Add(newRating);
+            db.Rating.Add(newRating);
             db.SaveChanges();
 
             var newReview = new Models.Review {
@@ -57,7 +57,7 @@ namespace EmpanadaReviewCS.Controllers
                 likes = review.likes
             };
 
-            db.Reviews.Add(newReview);
+            db.Review.Add(newReview);
             db.SaveChanges();
             
             return RedirectToAction("Success", review);
@@ -68,7 +68,7 @@ namespace EmpanadaReviewCS.Controllers
         }
         
         public ActionResult Edit(int id) {
-            var review = db.Reviews.Find(id);
+            var review = db.Review.Find(id);
             var reviewModel = new Models.ViewModel.ReviewModel {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -87,7 +87,7 @@ namespace EmpanadaReviewCS.Controllers
         [HttpPost]
         public ActionResult Update(Models.ViewModel.ReviewModel review) {
 
-            var reviewToUpdate = db.Reviews.Find(review.idReview);
+            var reviewToUpdate = db.Review.Find(review.idReview);
             reviewToUpdate.title = review.title;
             reviewToUpdate.description = review.description;
             reviewToUpdate.updatedAt = DateTime.Now.Date;
@@ -100,7 +100,7 @@ namespace EmpanadaReviewCS.Controllers
         }
 
         public ActionResult Delete(int id) {
-            var review = db.Reviews.Find(id);
+            var review = db.Review.Find(id);
             var reviewModel = new Models.ViewModel.ReviewModel {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -122,15 +122,15 @@ namespace EmpanadaReviewCS.Controllers
                 return RedirectToAction("Index", review);
             }
 
-            var reviewToDelete = db.Reviews.Find(review.idReview);
-            db.Reviews.Remove(reviewToDelete);
+            var reviewToDelete = db.Review.Find(review.idReview);
+            db.Review.Remove(reviewToDelete);
             db.SaveChanges();
 
             return RedirectToAction("Success", review);
         }
 
         public ActionResult Details(int id) {
-            var review = db.Reviews.Find(id);
+            var review = db.Review.Find(id);
             var reviewModel = new Models.Review {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -144,9 +144,9 @@ namespace EmpanadaReviewCS.Controllers
                 likes = review.likes
             };
 
-
-            ViewBag.Rating = db.Ratings.Find(reviewModel.idRating).score;
-            ViewBag.UserName = db.UserEmpanadas.Find(reviewModel.idUser).userName;
+            
+            ViewBag.Rating = db.Rating.Find(reviewModel.idRating).score;
+            ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
 
 
             return View(reviewModel);

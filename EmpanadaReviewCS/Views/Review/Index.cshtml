@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EmpanadaReviewCS.Models.Review>
+﻿@model IEnumerable<EmpanadaReviewCS.Models.ViewModel.MasterListModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -11,84 +11,36 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idReview)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.createdAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.updatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.imageSrc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idRestaurant)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.likes)
-            </th>
-            <th></th>
-        </tr>
-
+    
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+        <p>
+            @Html.ActionLink("Create New", "Create", "",new { @class = "btn btn-pimary" })
+        </p>
         @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idReview)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idUser)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idRating)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.createdAt.Date.Year)/@Html.DisplayFor(modelItem => item.createdAt.Date.Month)/@Html.DisplayFor(modelItem => item.createdAt.Date.Day)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Year)/@Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Month)/@Html.DisplayFor(modelItem => item.updatedAt.Value.Date.Day)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.imageSrc)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idRestaurant)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.likes)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.idReview }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.idReview }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.idReview })
-                </td>
-            </tr>
-        }
 
-    </table>
+            <div class="card" style="display: flex; flex-direction: column; background-color: antiquewhite; border-radius: 15px; margin-top: 1rem; padding:1rem; max-width: 60vw">
+                <div class="CardTitle">
+                    @Html.DisplayFor(modelItem => item.title)
+                </div>
+                <div class="CardContent" style="display: flex; flex-direction: row; justify-content: center; margin: 0 1rem 0 1rem; padding:1rem">
+                    <div style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding:1rem">
+                        <p>Creator</p>
+                        @Html.DisplayFor(modelItem => item.userName)
+                    </div>
+                    <div  style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding: 1rem">
+                        <p>Likes</p>
+                        @Html.DisplayFor(modelItem => item.likes)
+                    </div>
+                    <div  style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding: 1rem">
+                        <p>Restaurant</p>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </div>
+                    
+                    @Html.ActionLink("Details", "Details", new { id = item.idReview })
+                    
+                </div>
+            </div>
+        }
+    </div>
 </body>
 </html>

@@ -167,6 +167,7 @@
     <Compile Include="Models\UserEmpanada.cs">
       <DependentUpon>EmpanadaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\MasterListModel.cs" />
     <Compile Include="Models\ViewModel\RatingModel.cs" />
     <Compile Include="Models\ViewModel\ReviewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

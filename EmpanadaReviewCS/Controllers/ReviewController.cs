@@ -14,7 +14,31 @@ namespace EmpanadaReviewCS.Controllers
         // GET: Review list page
         public ActionResult Index() {
             var reviews = db.Review.ToList();
-            return View(reviews);
+            var ratings = db.Rating.ToList();
+            var restaurants = db.Restaurant.ToList();
+            var users = db.UserEmpanada.ToList();
+
+            // join the tables into a single list 
+
+            var MasterList = from r in reviews
+                                       join ra in ratings on r.idRating equals ra.idRating
+                                       join re in restaurants on r.idRestaurant equals re.idRestaurant
+                                       join u in users on r.idUser equals u.idUser
+                                       select new Models.ViewModel.MasterListModel {
+                                           idReview = r.idReview,
+                                           idUser = r.idUser,
+                                           idRating = r.idRating,
+                                           title = r.title,
+                                           description = r.description,
+                                           createdAt = r.createdAt,
+                                           imageSrc = r.imageSrc,
+                                           likes = r.likes,
+                                           score = ra.score,
+                                           name = re.name,
+                                           userName = u.userName,
+                                       };
+
+            return View(MasterList);
         }
 
 

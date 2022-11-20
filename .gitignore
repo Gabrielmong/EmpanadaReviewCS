@@ -379,5 +379,3 @@ EmpanadaReviewCS/Models/Rating.cs
 EmpanadaReviewCS/Models/Restaurant.cs
 EmpanadaReviewCS/Models/Review.cs
 EmpanadaReviewCS/Models/UserEmpanada.cs
-EmpanadaReviewCS/Models/ViewModel/RatingModel.cs
-EmpanadaReviewCS/Models/ViewModel/ReviewModel.cs

@@ -57,6 +57,14 @@ namespace EmpanadaReviewCS.Controllers
                 likes = review.likes
             };
 
+            var user = db.UserEmpanada.Find(review.idUser);
+            var userPostCounter = user.reviews;
+            userPostCounter++;
+            user.reviews = userPostCounter;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+
             db.Review.Add(newReview);
             db.SaveChanges();
             
@@ -101,36 +109,6 @@ namespace EmpanadaReviewCS.Controllers
 
         public ActionResult Delete(int id) {
             var review = db.Review.Find(id);
-            var reviewModel = new Models.ViewModel.ReviewModel {
-                idReview = review.idReview,
-                idUser = review.idUser,
-                idRating = review.idRating,
-                title = review.title,
-                description = review.description,
-                createdAt = review.createdAt,
-                updatedAt = review.updatedAt,
-                imageSrc = review.imageSrc,
-                idRestaurant = review.idRestaurant,
-                likes = review.likes
-            };
-            return View(reviewModel);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteReview(Models.ViewModel.ReviewModel review) {
-            if (!ModelState.IsValid) {
-                return RedirectToAction("Index", review);
-            }
-
-            var reviewToDelete = db.Review.Find(review.idReview);
-            db.Review.Remove(reviewToDelete);
-            db.SaveChanges();
-
-            return RedirectToAction("Success", review);
-        }
-
-        public ActionResult Details(int id) {
-            var review = db.Review.Find(id);
             var reviewModel = new Models.Review {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -146,6 +124,50 @@ namespace EmpanadaReviewCS.Controllers
 
             
             ViewBag.Rating = db.Rating.Find(reviewModel.idRating).score;
+            ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
+            ViewBag.Location = db.Restaurant.Find(reviewModel.idRestaurant).location;
+
+            return View(reviewModel);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteReview(Models.ViewModel.ReviewModel review) {
+            
+            var reviewToDelete = db.Review.Find(review.idReview);
+
+            var user = db.UserEmpanada.Find(reviewToDelete.idUser);
+            var userPostCounter = user.reviews;
+            userPostCounter--;
+            
+            user.reviews = userPostCounter;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+
+            var ratingToDelete = db.Rating.Find(reviewToDelete.idRating);
+            db.Rating.Remove(ratingToDelete);
+            db.Review.Remove(reviewToDelete);
+            db.SaveChanges();
+
+            return RedirectToAction("Success");
+        }
+
+        public ActionResult Details(int id) {
+            
+            var review = db.Review.Find(id);
+            var reviewModel = new Models.Review {
+                idReview = review.idReview,
+                idUser = review.idUser,
+                idRating = review.idRating,
+                title = review.title,
+                description = review.description,
+                createdAt = review.createdAt,
+                updatedAt = review.updatedAt,
+                imageSrc = review.imageSrc,
+                idRestaurant = review.idRestaurant,
+                likes = review.likes
+            };
+
+            ViewBag.Rating = db.Rating.Find(reviewModel.idRating).score;
+            ViewBag.Location = db.Restaurant.Find(reviewModel.idRestaurant).location;
             ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
 
 

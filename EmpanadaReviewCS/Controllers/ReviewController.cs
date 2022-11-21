@@ -49,6 +49,15 @@ namespace EmpanadaReviewCS.Controllers
                 review = new Models.ViewModel.ReviewModel();
             }
 
+            var restaurants = db.Restaurant.ToList();
+
+            IEnumerable<SelectListItem> selectList = from r in restaurants
+                                                     select new SelectListItem {
+                                                         Value = r.idRestaurant.ToString(),
+                                                         Text = r.name
+                                                     };
+            ViewBag.Restaurants = selectList;
+
             return View(review);
         }
 

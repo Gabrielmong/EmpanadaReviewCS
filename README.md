@@ -1,10 +1,11 @@
-todo
+# Empanada Review but in C#
 
-crud usuarios
-crud restaurantes
-crud bebidas y platillos
+You already know what it is
 
-cada una de las vistas
-todos los controladores
-
-cambiar los estilos
+## To-do
+ * crud usuarios
+ * crud restaurantes
+ * crud bebidas y platillos
+ * cada una de las vistas
+ * todos los controladores
+ * cambiar los estilos

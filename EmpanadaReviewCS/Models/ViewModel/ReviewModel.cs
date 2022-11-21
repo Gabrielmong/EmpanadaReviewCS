@@ -45,7 +45,7 @@ namespace EmpanadaReviewCS.Models.ViewModel {
         public Nullable<int> idRestaurant { get; set; }
 
         [Display(Name = "Likes")]
-        public Nullable<int> likes { get; set; }
+        public Nullable<int> likes { get; set; }  
     }
 
     public class CodeExists : ValidationAttribute {

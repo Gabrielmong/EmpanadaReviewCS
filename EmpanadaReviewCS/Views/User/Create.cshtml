@@ -1,0 +1,59 @@
+﻿@model EmpanadaReviewCS.Models.ViewModel.UserModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form action="~/User/Save" method="post">
+        <div class="row">
+
+            <br />
+            @Html.LabelFor(d => d.userName)
+            @Html.TextBoxFor(d => d.userName, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.userName, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.password)
+            @Html.PasswordFor(d => d.password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.password, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.firstName)
+            @Html.TextBoxFor(d => d.firstName, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.firstName, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.lastName)
+            @Html.TextBoxFor(d => d.lastName, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.lastName, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.bio)
+            @Html.TextBoxFor(d => d.bio, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.bio, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.imageSrc)
+            @Html.TextBoxFor(d => d.imageSrc, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.imageSrc, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.phoneNumber)
+            @Html.TextBoxFor(d => d.phoneNumber, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.phoneNumber, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.email)
+            @Html.TextBoxFor(d => d.email, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.email, "", new { @class = "text-danger" })+
+            <br />
+            @Html.LabelFor(d => d.gender)
+            @Html.TextBoxFor(d => d.gender, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.gender, "", new { @class = "text-danger" })
+
+            <input type="submit" value="Save" />
+
+        </div>
+    </form>
+</body>
+</html>

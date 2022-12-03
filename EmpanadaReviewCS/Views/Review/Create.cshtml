@@ -14,10 +14,7 @@
     <form action="~/Review/Save" method="post">
         <div class="row">
 
-            @Html.LabelFor(d => d.idUser)
-            @Html.TextBoxFor(d => d.idUser, "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(d => d.idUser, "", new { @class = "text-danger" })
-            <br />
+
             @Html.LabelFor(d => d.idRating)
             @Html.TextBoxFor(d => d.idRating, "", new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.idRating, "", new { @class = "text-danger" })

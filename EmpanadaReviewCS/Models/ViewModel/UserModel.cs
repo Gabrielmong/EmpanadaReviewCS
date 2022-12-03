@@ -11,12 +11,19 @@ namespace EmpanadaReviewCS.Models.ViewModel
     {
         [Required(ErrorMessage = "Must add a User ID")]
         [Display(Name = "User ID")]
-        [CodeExists]
         public int idUser { get; set; }
+
+        [Required(ErrorMessage = "Must add a User Name")]
+        [Display(Name = "User Name")]
+        public string userName { get; set; }
 
         [Required(ErrorMessage = "Must add a Password")]
         [Display(Name = "Password")]
         public string password { get; set; }
+
+        [Required(ErrorMessage = "Must add a Password")]
+        [Display(Name = "Password")]
+        public string confirmPassword { get; set; }
 
         [Required(ErrorMessage = "Must add a First Name")]
         [Display(Name = "First Name")]
@@ -45,15 +52,14 @@ namespace EmpanadaReviewCS.Models.ViewModel
 
         [Required(ErrorMessage = "Must add a Phone Number")]
         [Display(Name = "Phone Number")]
-        [Range(10000000, 99999999, ErrorMessage = "Phone number must be an 8 digit number")]
-        public int phoneNumber { get; set; }
+        public string phoneNumber { get; set; }
 
         [Required(ErrorMessage = "Must add an Email")]     
         [Display(Name = "Email")]
         [EmailAddress]
         [StringLength(320, ErrorMessage = "Email must be less than 320 characters")]
         public string email { get; set; }
-      
+
         [Display(Name = "Gender")]
         [StringLength(20, ErrorMessage = "Description must be less than 20 characters")]
         public string gender { get; set; }

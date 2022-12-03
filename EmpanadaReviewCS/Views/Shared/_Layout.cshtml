@@ -22,6 +22,18 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Reviews", "Index", "Review")</li>
                     <li>@Html.ActionLink("Restaurants", "Index", "Restaurant")</li>
+                    <li>@Html.ActionLink("Users", "Index", "User")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    @if (User.Identity.IsAuthenticated) {
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                        <li><label class="navbar-text">@Session["userName"]</label></li>
+                    } else {
+                        <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    }
                 </ul>
             </div>
         </div>

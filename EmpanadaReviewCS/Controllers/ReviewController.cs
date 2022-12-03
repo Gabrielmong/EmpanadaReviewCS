@@ -49,6 +49,10 @@ namespace EmpanadaReviewCS.Controllers
                 review = new Models.ViewModel.ReviewModel();
             }
 
+            if (User.Identity.IsAuthenticated == false) {
+                return RedirectToAction("Login", "Home");
+            }
+
             var restaurants = db.Restaurant.ToList();
 
             IEnumerable<SelectListItem> selectList = from r in restaurants
@@ -77,9 +81,9 @@ namespace EmpanadaReviewCS.Controllers
 
             db.Rating.Add(newRating);
             db.SaveChanges();
-
+            
             var newReview = new Models.Review {
-                idUser = review.idUser,
+                idUser = int.Parse(Session["idUser"].ToString()),
                 idRating = newRating.idRating,
                 title = review.title,
                 description = review.description,
@@ -90,7 +94,7 @@ namespace EmpanadaReviewCS.Controllers
                 likes = review.likes
             };
 
-            var user = db.UserEmpanada.Find(review.idUser);
+            var user = db.UserEmpanada.Find(int.Parse(Session["idUser"].ToString()) );
             var userPostCounter = user.reviews;
             userPostCounter++;
             user.reviews = userPostCounter;

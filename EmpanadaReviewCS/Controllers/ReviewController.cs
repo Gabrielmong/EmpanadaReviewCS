@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -91,7 +92,7 @@ namespace EmpanadaReviewCS.Controllers
                 updatedAt = DateTime.Now.Date,
                 imageSrc = review.imageSrc,
                 idRestaurant = review.idRestaurant,
-                likes = review.likes
+                likes = 0
             };
 
             var user = db.UserEmpanada.Find(int.Parse(Session["idUser"].ToString()) );
@@ -104,7 +105,11 @@ namespace EmpanadaReviewCS.Controllers
 
             db.Review.Add(newReview);
             db.SaveChanges();
-            
+
+
+
+
+
             return RedirectToAction("Success", review);
         }
 
@@ -112,8 +117,25 @@ namespace EmpanadaReviewCS.Controllers
             return View(review);
         }
         
-        public ActionResult Edit(int id) {
+        public ActionResult Edit(int? id) {
+
+            if (id == null) {
+                return RedirectToAction("Index");
+            }
+
+            if (User.Identity.IsAuthenticated == false) {
+                return RedirectToAction("Login", "Home");
+            }
+
+            
+
             var review = db.Review.Find(id);
+
+            // check if the current user is the same as the user in the review
+            if (review.idUser != int.Parse(Session["idUser"].ToString())) {
+                return RedirectToAction("Index", "Home");
+            }
+
             var reviewModel = new Models.ViewModel.ReviewModel {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -163,6 +185,8 @@ namespace EmpanadaReviewCS.Controllers
             ViewBag.Rating = db.Rating.Find(reviewModel.idRating).score;
             ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
             ViewBag.Location = db.Restaurant.Find(reviewModel.idRestaurant).location;
+            
+ 
 
             return View(reviewModel);
         }
@@ -203,9 +227,11 @@ namespace EmpanadaReviewCS.Controllers
                 likes = review.likes
             };
 
+            
             ViewBag.Rating = db.Rating.Find(reviewModel.idRating).score;
             ViewBag.Location = db.Restaurant.Find(reviewModel.idRestaurant).location;
             ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
+            ViewBag.UserId = db.UserEmpanada.Find(reviewModel.idUser).idUser;
 
 
             return View(reviewModel);

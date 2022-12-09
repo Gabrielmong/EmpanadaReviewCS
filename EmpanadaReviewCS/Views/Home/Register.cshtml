@@ -1,0 +1,62 @@
+﻿@model EmpanadaReviewCS.Models.UserEmpanada
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<form action="~/Home/Register" method="post" class="register-container">
+    <div class="profile-body">
+        <div class="profile-title">
+            <h4>Register</h4>
+        </div>
+        <div class="profile-info">
+            <div class="profile-info-left">
+                <div class="profile-info-item">
+                    @Html.DisplayNameFor(model => model.userName)
+                </div>
+                <div class="profile-info-item">
+                    @Html.DisplayNameFor(model => model.password)
+                </div>
+                <div class="profile-info-item">
+                    @Html.DisplayNameFor(model => model.firstName)
+                </div>
+                <div class="profile-info-item">
+                    @Html.DisplayNameFor(model => model.lastName)
+                </div>
+                <div class="profile-info-item">
+                    @Html.DisplayNameFor(model => model.email)
+                </div>
+            </div>
+            <div class="profile-info-right">
+                <div class="edit-profile-info-item">
+                    @Html.EditorFor(model => model.userName, "", new { @class = "profile-edit-input" })
+                </div>
+                <div class="edit-profile-info-item">
+                    @Html.PasswordFor(model => model.password, new { @class = "profile-edit-input" })
+                </div>
+                <div class="edit-profile-info-item">
+                    @Html.EditorFor(model => model.firstName, "", new { @class = "profile-edit-input" })
+                </div>
+                <div class="edit-profile-info-item">
+                    @Html.EditorFor(model => model.lastName, "", new { @class = "profile-edit-input" })
+                </div>
+                <div class="edit-profile-info-item">
+                    @Html.EditorFor(model => model.email, "", new { @class = "profile-edit-input" })
+                </div>
+
+            </div>
+
+        </div>
+        <div class="profile-buttons-container">
+            <div class="profile-buttons-bottom">
+                <div>
+                    <input type="submit" value="Sign Up" class="profile-button profile-logout" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+

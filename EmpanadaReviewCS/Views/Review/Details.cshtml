@@ -8,88 +8,75 @@
     <title>Details</title>
 </head>
 <body>
-    <div>
-        <h4>Review</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.title)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.title)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.description)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.description)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.createdAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.createdAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.updatedAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.updatedAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.imageSrc)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.imageSrc)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.idRestaurant)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.idRestaurant)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.likes)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.likes)
-            </dd>
-    
-            <dt>
-               Rating
-            </dt>
-    
-            <dd>
-               @ViewBag.Rating
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UserEmpanada.userName)
-            </dt>
-    
-            <dd>
-                @ViewBag.UserName
-            </dd>
-    
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idReview }) | 
-        @Html.ActionLink("Delete", "Delete", new { id = Model.idReview }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="review-single-container">
+        <div class="review-single-card">
+            <div class="review-single-header">
+                <div class="review-single-title">
+                    <div class="review-single-title-item">
+                        @Html.DisplayNameFor(model => model.title)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.title)
+                    </div>
+                </div>
+            </div>
+            <div class="review-single-info">
+                <div class="review-single-info-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.UserEmpanada.userName)
+                    </div>
+                    <div>
+                        @ViewBag.UserName
+                    </div>
+                </div>
+                <div class="review-single-info-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.likes)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.likes)
+                    </div>
+                </div>
+                <div class="review-single-info-item">
+                    <div>
+                        Rating
+                    </div>
+                    <div>
+                        @ViewBag.Rating
+                    </div>
+                </div>
+                <div class="review-single-info-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.createdAt)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.createdAt)
+                    </div>
+                </div>
+                <div class="review-single-info-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.updatedAt)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.updatedAt)
+                    </div>
+                </div>
+            </div>
+            <div class="review-single-body">
+                <div>
+                    @Html.DisplayFor(model => model.description)
+                </div>
+            </div>
+        </div>
+        <p>
+            @if (User.Identity.IsAuthenticated) {
+                if ((int)Session["idUser"] == ViewBag.UserId) {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.idReview }, new { @class = "review-single-button" })
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.idReview }, new { @class = "review-single-button" })
+                }
+            }
+
+        </p>
 </body>
 </html>

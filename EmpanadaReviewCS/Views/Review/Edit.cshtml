@@ -12,41 +12,40 @@
     <title>Edit</title>
 </head>
 <body>
-
-    <div class="form-horizontal">
-        <h4>ReviewModel</h4>
-        <hr />
-
-        <form action="~/Review/Update" method="post">
-            <div class="row">
-
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.idUser)
-                @Html.HiddenFor(model => model.idReview)
-                @Html.HiddenFor(model => model.idRestaurant)
-
-                <br />
-                @Html.LabelFor(model => model.title)
-                @Html.EditorFor(model => model.title, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.description)
-                @Html.EditorFor(model => model.description, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.likes)
-                @Html.EditorFor(model => model.likes, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.likes, "", new { @class = "text-danger" })
-
-                <input type="submit" value="Save" />
-
+        <form action="~/Review/Update" method="post" class="review-edit-container">
+            <div class="review-edit-card">
+                <div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.idUser)
+                    @Html.HiddenFor(model => model.idReview)
+                    @Html.HiddenFor(model => model.idRestaurant)
+                </div>
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.title)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.EditorFor(model => model.title, "", new { @class = "review-edit-item-input" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="review-edit-item">
+                    <div class="review-edit-item-container">
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.description)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.TextAreaFor(model => model.description, new { @class = "review-edit-item-input" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="review-edit-item">
+                    <input type="submit" value="Save" class="review-edit-button" />
+                </div>
             </div>
         </form>
-    </div>
-
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </body>
 </html>

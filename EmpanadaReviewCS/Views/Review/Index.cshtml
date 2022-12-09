@@ -12,35 +12,41 @@
 </head>
 <body>
     
-    <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-        <p>
-            @Html.ActionLink("Create New", "Create", "",new { @class = "btn btn-pimary" })
-        </p>
-        @foreach (var item in Model) {
-
-            <div class="card" style="display: flex; flex-direction: column; background-color: antiquewhite; border-radius: 15px; margin-top: 1rem; padding:1rem; max-width: 60vw">
-                <div class="CardTitle">
-                    @Html.DisplayFor(modelItem => item.title)
+    <div class="reviews-container">
+        <div class="reviews-header">
+            <h1>Reviews</h1>
+            @Html.ActionLink("Create New", "Create", "", new { @class = "review-card-button" })
+        </div>
+            
+       
+        <div class="reviews-scroll">
+            @foreach (var item in Model) {
+                <div class="review-card">
+                    <div class="review-card-title">
+                        @Html.DisplayFor(modelItem => item.title)
+                    </div>
+                    <div class="review-card-body" >
+                        <div class="review-card-item">
+                            <p>Creator</p>
+                            @Html.DisplayFor(modelItem => item.userName)
+                        </div>
+                        <div class="review-card-item">
+                            <p>Likes</p>
+                            @Html.DisplayFor(modelItem => item.likes)
+                        </div>
+                        <div class="review-card-item">
+                            <p>Restaurant</p>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </div>
+                        <div class="review-card-item">
+                            @Html.ActionLink("Details", "Details", new { id = item.idReview }, new { @class = "review-card-button" })
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="CardContent" style="display: flex; flex-direction: row; justify-content: center; margin: 0 1rem 0 1rem; padding:1rem">
-                    <div style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding:1rem">
-                        <p>Creator</p>
-                        @Html.DisplayFor(modelItem => item.userName)
-                    </div>
-                    <div  style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding: 1rem">
-                        <p>Likes</p>
-                        @Html.DisplayFor(modelItem => item.likes)
-                    </div>
-                    <div  style="display: flex; flex-direction: column; margin: 0 1rem 0 1rem; padding: 1rem">
-                        <p>Restaurant</p>
-                        @Html.DisplayFor(modelItem => item.name)
-                    </div>
-                    
-                    @Html.ActionLink("Details", "Details", new { id = item.idReview })
-                    
-                </div>
-            </div>
-        }
+            }
+        </div>
+        
     </div>
 </body>
 </html>

@@ -1,6 +1,728 @@
-﻿body {
+﻿:root {
+    --em_brown: "#774108";
+    --em_orange: "#fe8c0c";
+    --em_yellow: "#ffde02";
+    --em_black: "#010000";
+    --em_gray: "#727272";
 }
 
 * {
-    border: 1px solid red;
+    border: 0px solid red;
+    margin: 0;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #f5f4f2;
+    margin: 0 0 0 1rem;
+}
+
+label {
+    font-size: 1.5em;
+    color: #f5f4f2
+}
+
+/* Navbar Start */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+    background-image: linear-gradient(to right, #fe8c0c, #ffde02);
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.navbar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 2rem;
+}
+
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+    .navbar-left > div {
+        margin-right: 1rem;
+    }
+
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+/* Navbar end */
+
+/* Main Container */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    height: calc(100vh - 70px);
+}
+
+/* Main Container end */
+
+/* Home Start */
+
+/* Index */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.home-title {
+    font-size: 3rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+.home-welcome {
+    font-size: 1.5rem;
+    color: #727272;
+    margin: 0 0 1rem 0;
+}
+
+.home-lead {
+    font-size: 1rem;
+    color: #727272;
+    margin: 0 0 1rem 0;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Index end */
+
+/* Login Start */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.login-card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 0;
+}
+
+    .login-card-header > h1 {
+        font-size: 2rem;
+        color: #774108;
+        margin: 0 0 1rem 0;
+    }
+
+.login-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.login-card-body-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+    .login-card-body-inputs > input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+    }
+
+
+.login-label {
+    font-size: 1.5rem;
+    color: #774108;
+}
+
+.login-button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+    .login-button:hover {
+        background-color: #F3F4F6;
+        text-decoration: none;
+        transition-duration: 0.1s;
+    }
+
+
+
+
+.login-link {
+    font-size: 1rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+/* Login End */
+
+/* Profile Start */
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.profile-button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.profile-edit {
+    background-color: #ffde02;
+}
+
+.profile-logout {
+    background-color: #774108;
+    color: #fff;
+}
+
+.profile-username {
+    font-size: 2rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-info-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: end;
+    width:30%;
+}
+
+.profile-info-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: start;
+    width: 70%;
+}
+
+.profile-info-item {
+    font-size: 1.5rem;
+    color: #727272;
+    margin: 0 0 1rem 0;
+}
+
+.profile-title {
+    font-size: 1.5rem;
+    color: #774108;
+}
+
+.profile-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+.profile-buttons-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-profile-info-item {
+    font-size: 1.5rem;
+    color: #727272;
+    margin: 0 0 0.8rem 0;
+}
+
+.edit-profile-info-item > input{
+    width: 100%;
+    margin: 0;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    height: fit-content;
+}
+
+/* Profile end */
+
+/* Register Start */
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.register-title {
+    font-size: 2rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+.register-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.register-info-item {
+    font-size: 1.5rem;
+    color: #727272;
+    margin: 0 0 0.8rem 0;
+}
+
+
+/* Home end */
+
+/* Reviews Start */
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.reviews-scroll {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+}
+
+.reviews-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    padding: 1rem;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.review-card-title {
+    font-size: 2rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+.review-card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.review-card-item {
+    font-size: 1rem;
+    color: #727272;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-card-button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.review-single-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.review-single-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #dec173;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.review-single-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.review-single-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+    font-size: 2rem;
+    color: #774108;
+    margin: 0 0 1rem 0;
+}
+
+.review-single-title-item {
+    font-size: 1.5rem;
+    color: #727272;
+    margin: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.review-single-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+}
+
+.review-single-info-item {
+    font-size: 1rem;
+    color: black;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px
+}
+
+.review-single-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #f5f4f2;
+    min-height: 400px;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.review-single-button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.review-edit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.review-edit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #dec173;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.review-edit-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.review-edit-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.review-edit-item-label {
+    font-size: 1rem;
+    color: #727272;
+    margin: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-edit-item-input {
+    font-size: 1rem;
+    color: black;
+    margin: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}
+
+.review-edit-item-input > input {
+    width: 100%;
+    margin: 0;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    height: fit-content;
+}
+
+    .review-edit-item-input > textarea {
+        width: 100%;
+        min-height: 150px;
+        margin: 0;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        height: fit-content;
+    }
+
+    .review-edit-item-input > select {
+        width: 100%;
+        margin: 0;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        height: fit-content;
+    }
+
+
+.review-edit-button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+
+/* Reviews End */

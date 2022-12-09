@@ -64,7 +64,7 @@ namespace EmpanadaReviewCS.Models.ViewModel
         [StringLength(20, ErrorMessage = "Description must be less than 20 characters")]
         public string gender { get; set; }
 
-        [Display(Name = "Review Quantity")]
+        [Display(Name = "Reviews")]
         public Nullable<int> reviews { get; set; }
 
     }

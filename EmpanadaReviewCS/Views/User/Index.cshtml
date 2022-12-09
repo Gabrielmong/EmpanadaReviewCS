@@ -90,12 +90,11 @@
                     @Html.DisplayFor(modelItem => item.reviews)
                 </td>
                 <td>
-                    @if (User.Identity.Name == item.userName) {
                         @Html.ActionLink("Edit", "Edit", new { id = item.idUser })
                         @Html.ActionLink("Details", "Details", new { id = item.idUser })
                         @Html.ActionLink("Delete", "Delete", new { id = item.idUser })
-                    }
-                        @Html.ActionLink("Details", "Details", new { id = item.idUser })
+                    
+                        @Html.ActionLink("Profile", "Profile", new { id = item.idUser })
 
                 </td>
             </tr>

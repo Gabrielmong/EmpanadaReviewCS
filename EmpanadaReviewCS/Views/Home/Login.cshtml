@@ -3,28 +3,31 @@
     ViewBag.Title = "Login";
 }
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <div class="card custom-card">
-        <div class="card-header bg-primary text-white">
-            <h3>Login Form</h3>
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                @Html.LabelFor(m => m.userName)
-                @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.userName)
+<div class="login-container">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="login-card">
+            <div class="login-card-header">
+                <h1>Login</h1>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.password)
-                @Html.PasswordFor(m => m.password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.password)
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-0"> Login </button>
-                @Html.ActionLink("New User", "Register")
-            </div>
+            <div class="login-card-body">
+                <div class="login-card-body-inputs">
+                    @Html.LabelFor(m => m.userName, new { @class = "login-label" })
+                    @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.userName)
+                </div>
+                <div class="login-card-body-inputs">
+                    @Html.LabelFor(m => m.password, new { @class = "login-label" })
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.password)
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-button"> Login </button>
+                    <a href="/Home/Register" class="login-button">Register</a>
+                </div>
 
+            </div>
         </div>
-    </div>
-}
+
+    }
+</div>

@@ -5,6 +5,8 @@ namespace EmpanadaReviewCS.Models.ViewModel {
         public int idReview { get; set; }
         public int idUser { get; set; }
         public int idRating { get; set; }
+
+        public int idRestaurant { get; set; }
         public string title { get; set; }
         public string description { get; set; }
         public DateTime createdAt { get; set; }

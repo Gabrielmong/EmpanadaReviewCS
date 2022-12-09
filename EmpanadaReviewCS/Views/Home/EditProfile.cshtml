@@ -1,0 +1,78 @@
+﻿@model EmpanadaReviewCS.Models.UserEmpanada
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <form action="~/Home/EditProfile" method="post" class="profile-container">
+        <div class="profile-body">
+            <div class="profile-title">
+                <h4>Profile</h4>
+            </div>
+            <div class="profile-username">
+                @Html.HiddenFor(model => model.idUser)
+                @Html.DisplayFor(model => model.userName)
+            </div>
+            <div class="profile-info">
+                <div class="profile-info-left">
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.userName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.password)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.firstName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.lastName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.bio)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.email)
+                    </div>
+                </div>
+                <div class="profile-info-right">
+                    <div class="edit-profile-info-item">
+                        @Html.EditorFor(model => model.userName, "", new { @class = "profile-edit-input" })
+                    </div>
+                    <div class="edit-profile-info-item">
+                        @Html.PasswordFor(model => model.password, new { @class = "profile-edit-input" })
+                    </div>
+                    <div class="edit-profile-info-item">
+                        @Html.EditorFor(model => model.firstName, "", new { @class = "profile-edit-input" })
+                    </div>
+                    <div class="edit-profile-info-item">
+                        @Html.EditorFor(model => model.lastName, "", new { @class = "profile-edit-input" })
+                    </div>
+                    <div class="edit-profile-info-item">
+                        @Html.EditorFor(model => model.bio, "", new { @class = "profile-edit-input" })
+                    </div>
+                    <div class="edit-profile-info-item">
+                        @Html.EditorFor(model => model.email, "", new { @class = "profile-edit-input" })
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="profile-buttons-container">
+                <div class="profile-buttons-bottom">
+                    <div>
+                        <input type="submit" value="Save" class="profile-button profile-logout" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

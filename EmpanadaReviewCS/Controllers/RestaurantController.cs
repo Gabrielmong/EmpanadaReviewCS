@@ -10,7 +10,9 @@ namespace EmpanadaReviewCS.Controllers {
         Models.EmpanadaReviewEntities db = new Models.EmpanadaReviewEntities();
         // GET: Restaurant
         public ActionResult Index() {
+
             var restaurants = db.Restaurant.ToList();
+
             return View(restaurants);
         }
 

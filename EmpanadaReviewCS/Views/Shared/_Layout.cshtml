@@ -3,48 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - EmpanadaReview</title>
+    <title>EmpanadaReview</title>
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Styles/styles.css" rel="stylesheet" />
+    <link href="~/Styles/styles.css?1522063943" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar">
+        <div class="nav-container">
+
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("EmpanadaReview", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Reviews", "Index", "Review")</li>
-                    <li>@Html.ActionLink("Restaurants", "Index", "Restaurant")</li>
-                    <li>@Html.ActionLink("Users", "Index", "User")</li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+            <div class="navbar-left">
+                <div>@Html.ActionLink("Reviews", "Index", "Review")</div>
+                <div>@Html.ActionLink("Restaurants", "Index", "Restaurant")</div>
 
-                    @if (User.Identity.IsAuthenticated) {
-                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
-                        <li><label class="navbar-text">@Session["userName"]</label></li>
-                    } else {
-                        <li>@Html.ActionLink("Register", "Register", "Home")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                    }
-                </ul>
+            </div>
+
+            <div class="navbar-right">
+
+                @if (User.Identity.IsAuthenticated) {
+                    <a href="/Home/ProfilePage">@Session["userName"]</a>
+                    <div>@Html.ActionLink("Logout", "Logout", "Home")</div>
+                } else {
+                    <div>@Html.ActionLink("Register", "Register", "Home")</div>
+                    <div>@Html.ActionLink("Login", "Login", "Home")</div>
+                }
             </div>
         </div>
     </div>
-    <div class="container body-content">
+
+    <div class="main-container">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - DreamTeam
-        </footer>
+
     </div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - DreamTeam
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

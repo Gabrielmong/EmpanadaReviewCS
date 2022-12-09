@@ -1,0 +1,84 @@
+﻿@model EmpanadaReviewCS.Models.UserEmpanada
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-body">
+            <div class="profile-title">
+                <h4>Profile</h4>
+            </div>
+            <div class="profile-username">
+                @Html.DisplayFor(model => model.userName)
+            </div>
+            <div class="profile-info">
+                <div class="profile-info-left">
+                     
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.firstName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.lastName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.bio)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.createdAt)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.email)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.reviews)
+                    </div>
+                </div>
+                <div  class="profile-info-right">
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.firstName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.lastName)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.bio)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.createdAt)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.email)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.reviews)
+                    </div>
+                </div>
+                
+            </div>
+            <div class="profile-buttons-container">
+                <div class="profile-buttons-bottom">
+                    <div>
+                        <a href="/Home/Logout" class="profile-button profile-logout">Logout</a>
+                    </div>
+                    <div>
+                        <a href="/Home/EditProfile/@Model.idUser" class="profile-button profile-edit">Edit</a>
+                        <a href="/Home/Delete/@Model.idUser" class="profile-button profile-edit">Delete Account</a>
+
+                    </div>
+                </div>
+            </div>
+            
+               
+        </div>
+        
+
+    </div>
+    
+
+</body>
+</html>

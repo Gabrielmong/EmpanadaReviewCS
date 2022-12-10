@@ -20,6 +20,7 @@ namespace EmpanadaReviewCS.Controllers {
                 if (user != null) {
                     Session["userName"] = user.userName;
                     Session["idUser"] = user.idUser;
+                    Session["role"] = user.role;
                 }
 
             }
@@ -77,6 +78,8 @@ namespace EmpanadaReviewCS.Controllers {
 
             userFromDb.bio = "No bio yet.";
             userFromDb.reviews = 0;
+            userFromDb.createdAt = DateTime.Now;
+            userFromDb.role = "user";
 
             _db.SaveChanges();
 
@@ -96,6 +99,7 @@ namespace EmpanadaReviewCS.Controllers {
                     // set the session
                     Session["userName"] = validUser.userName;
                     Session["idUser"] = validUser.idUser;
+                    Session["role"] = validUser.role;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -118,6 +122,18 @@ namespace EmpanadaReviewCS.Controllers {
                 // get the user from the database
                 var user = _db.UserEmpanada.FirstOrDefault(u => u.idUser == idUser);
 
+                // count all the reviews for the user
+                var reviews = _db.Review.Where(r => r.idUser == idUser).ToList();
+
+                // update the user reviews count
+                user.reviews = reviews.Count();
+
+                // save the changes
+                _db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                
+
+                ViewBag.createdAt = user.createdAt.ToString("MMMM dd, yyyy");
                 // pass the user to the view
 
                 return View(user);
@@ -152,11 +168,12 @@ namespace EmpanadaReviewCS.Controllers {
                 userFromDb.userName = user.userName;
                 userFromDb.password = user.password;
                 userFromDb.firstName = user.firstName;
-
+                userFromDb.updatedAt = DateTime.Now;
                 userFromDb.lastName = user.lastName;
                 userFromDb.email = user.email;
 
                 // save the changes
+                _db.Entry(userFromDb).State = System.Data.Entity.EntityState.Modified;
                 _db.SaveChanges();
 
                 FormsAuthentication.SignOut();

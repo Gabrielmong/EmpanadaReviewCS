@@ -19,7 +19,7 @@
                         @Html.LabelFor(d => d.idRating)
                     </div>
                     <div class="review-edit-item-input">
-                        @Html.EditorFor(model => model.idRating, "", new { @class = "review-edit-item-input" })
+                        @Html.EditorFor(model => model.idRating, "", new { @class = "review-edit-item-input" , htmlAttributes = new { @min = "0", @max = "5" } })
                     </div>
                     @Html.ValidationMessageFor(model => model.idRating, "", new { @class = "text-danger" })
                 </div>

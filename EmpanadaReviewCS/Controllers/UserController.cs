@@ -58,9 +58,13 @@ namespace EmpanadaReviewCS.Controllers {
         }
 
         // GET: User/Edit/5
-        public ActionResult Edit(int id) {
-            
-                var user = db.UserEmpanada.Find(id);
+        public ActionResult Edit(int? id) {
+
+            if (id == null) {
+                return RedirectToAction("Index");
+            }
+
+            var user = db.UserEmpanada.Find(id);
 
                 if (User.Identity.IsAuthenticated == false) {
                     return RedirectToAction("Login", "Home");
@@ -121,7 +125,12 @@ namespace EmpanadaReviewCS.Controllers {
         }
 
         // GET: User/Delete/5
-        public ActionResult Delete(int id) {
+        public ActionResult Delete(int? id) {
+
+            if (id == null) {
+                return RedirectToAction("Index");
+            }
+            
             var user = db.UserEmpanada.Find(id);
 
             return View(user);

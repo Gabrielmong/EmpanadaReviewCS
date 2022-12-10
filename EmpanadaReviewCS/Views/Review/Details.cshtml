@@ -71,12 +71,13 @@
         </div>
         <p>
             @if (User.Identity.IsAuthenticated) {
-                if ((int)Session["idUser"] == ViewBag.UserId) {
+                if ((int)Session["idUser"] == ViewBag.UserId || (string)Session["role"] == "admin") {
                     @Html.ActionLink("Edit", "Edit", new { id = Model.idReview }, new { @class = "review-single-button" })
                     @Html.ActionLink("Delete", "Delete", new { id = Model.idReview }, new { @class = "review-single-button" })
                 }
             }
 
         </p>
+    </div>
 </body>
 </html>

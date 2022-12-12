@@ -13,7 +13,7 @@ namespace EmpanadaReviewCS.Controllers {
 
             var restaurants = db.Restaurant.ToList();
 
-            // update   the rating of each restaurant 
+            // update the rating of each restaurant 
             foreach (var restaurant in restaurants) {
                 var ratings = db.Rating.Where(r => r.idRestaurant == restaurant.idRestaurant).ToList();
                 var total = 0;

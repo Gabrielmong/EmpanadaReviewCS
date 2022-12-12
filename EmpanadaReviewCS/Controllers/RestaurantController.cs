@@ -42,9 +42,8 @@ namespace EmpanadaReviewCS.Controllers {
 
         // GET: Restaurant/Create
         public ActionResult Create(Restaurant restaurant) {
-
-            // check if user is logged in
-            if ((string)Session["userName"] != "Gandalf") {
+            
+            if ((string)Session["role"] != "admin") {
                 return RedirectToAction("Login", "Home");
             }
 

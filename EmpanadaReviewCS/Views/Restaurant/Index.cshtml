@@ -9,55 +9,45 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.averageRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
- 
-            <th>
-                @Html.DisplayNameFor(model => model.foodType)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.averageRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.foodType)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.idRestaurant }) |
-                @Html.ActionLink("Details", "Details", new { id=item.idRestaurant }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.idRestaurant })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <div class="restaurant-container">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+        <div class="restaurant-scroll">
+            @foreach (var item in Model)
+            {
+                <div class="restaurant-card">
+                    <div class="review-card-title">
+                        @Html.DisplayFor(modelItem => item.location)
+                    </div>
+                    <div class="review-card-body">
+                        <div class="review-card-item">
+                            <p>Average Rating</p>
+                            @Html.DisplayFor(modelItem => item.averageRating)
+                        </div>
+                        <div class="review-card-item">
+                            <p>Name</p>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </div>
+                        <div class="review-card-item">
+                            <p>Description</p>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </div>
+                        <div class="review-card-item">
+                            <p>Food type</p>
+                            @Html.DisplayFor(modelItem => item.foodType)
+                        </div>
+                        <div class="review-card-item">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                            @Html.ActionLink("Details", "Details", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </body>
 </html>

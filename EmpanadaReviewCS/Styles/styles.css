@@ -726,3 +726,57 @@ label {
 
 
 /* Reviews End */
+
+
+.restaurant-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: calc(100% - 70px)
+}
+
+.restaurant-scroll {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+}
+
+.restaurant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.footer-container {
+    position: relative;
+    bottom: 0;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.footer-div {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+}
+
+.footer-text {
+    color: #6B7280;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+}

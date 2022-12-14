@@ -9,6 +9,7 @@
 * {
     border: 0px solid red;
     margin: 0;
+    font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -23,13 +24,13 @@ body {
 a {
     text-decoration: none;
     font-size: 1.5em;
-    color: #f5f4f2;
-    margin: 0 0 0 1rem;
+    color: #774108;
+    margin: 0 0 0 1em;
 }
 
 label {
     font-size: 1.5em;
-    color: #f5f4f2
+    color: #f5f4f2;
 }
 
 /* Navbar Start */
@@ -80,7 +81,7 @@ label {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2rem;
+    padding: 0rem 2rem 2rem 2rem;
     height: calc(100vh - 70px);
 }
 
@@ -199,7 +200,6 @@ label {
     color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -272,7 +272,6 @@ label {
     color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -290,6 +289,11 @@ label {
 
 .profile-edit {
     background-color: #ffde02;
+}
+
+.profile-delete {
+    background-color: #c61d1d;
+    color: #FFF;
 }
 
 .profile-logout {
@@ -346,7 +350,7 @@ label {
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 2rem;
+    margin-left: 5px;
 }
 
 .profile-buttons-bottom {
@@ -426,7 +430,7 @@ label {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 40%;
+    width: 60%;
 }
 
 .reviews-header {
@@ -434,7 +438,7 @@ label {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 60%;
     padding: 1rem;
 }
 
@@ -475,6 +479,7 @@ label {
 }
 
 .review-card-button {
+    margin: 10px;
     appearance: none;
     background-color: #FAFBFC;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -484,7 +489,6 @@ label {
     color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -502,10 +506,11 @@ label {
 
 .review-single-container {
     display: flex;
+    overflow-y: scroll;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: calc(100% - 70px)
+    height: 100%;
 }
 
 .review-single-card {
@@ -591,7 +596,6 @@ label {
     color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -708,7 +712,6 @@ label {
     color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -742,7 +745,7 @@ label {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 40%;
+    width: 60%;
 }
 
 .restaurant-card {
@@ -779,4 +782,56 @@ label {
     font-size: 1rem;
     line-height: 1.5rem;
     text-align: center;
+}
+
+.restaurant-text {
+    text-align: center;
+}
+
+.table-container {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e48d2f;
+    color: white;
+    border-radius: 3px;
+}
+
+.restaurant-card-button {
+    text-align: center;
+    margin: 10px;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 12px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.restaurant-edit {
+    background-color: #ffde02;
+}
+
+.restaurant-button-container {
+    flex-direction: row;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -10,9 +10,12 @@
 </head>
 <body>
     <div class="restaurant-container">
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+        <div class="reviews-header">
+            <h1>Restaurants</h1>
+            <p class="create-new">
+                @Html.ActionLink("Create New", "Create", "", new { @class = "review-card-button" })
+            </p>
+        </div>
 
         <div class="restaurant-scroll">
             @foreach (var item in Model)

@@ -5,99 +5,105 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="withh=device-withh" />
     <title>Details</title>
 </head>
 <body>
     <div>
-        <h4>Restaurant</h4>
+        <h2 class="restaurant-text">Restaurant</h2>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.location)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.location)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.averageRating)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.averageRating)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.description)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.description)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.createdAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.createdAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.updatedAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.updatedAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.imageSrc)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.imageSrc)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.foodType)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.foodType)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.hasAllergies)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.hasAllergies)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.restrictions)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.restrictions)
-            </dd>
-    
-        </dl>
+        <table  class="table-container">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.location)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.averageRating)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.createdAt)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.updatedAt)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.imageSrc)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.foodType)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.hasAllergies)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.restrictions)
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.location)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.averageRating)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.description)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.createdAt)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.updatedAt)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.imageSrc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.foodType)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.hasAllergies)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.restrictions)
+                </td>
+            </tr>
+        </table>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idRestaurant }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="restaurant-button-container">
+        <p class="restaurant-card-button restaurant-edit">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.idRestaurant })
+        </p>
+        <p class="restaurant-card-button">
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
 </body>
 </html>

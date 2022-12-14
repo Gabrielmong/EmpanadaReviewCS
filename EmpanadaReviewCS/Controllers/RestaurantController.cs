@@ -51,39 +51,40 @@ namespace EmpanadaReviewCS.Controllers {
 
             if (restaurant == null) {
                 restaurant = new Restaurant();
+
+                restaurant.createdAt = DateTime.Now.Date;
+                restaurant.averageRating = 0;
+                
+                
             }
-
-    
-
+            
             return View();
         }
 
         // POST: Restaurant/Create
         [HttpPost]
         public ActionResult Save(Restaurant restaurant) {
+            if (ModelState.IsValid) {
+                // create a new restaurant to also include default values
+                Restaurant restaurantToDB = new Restaurant();
+                restaurantToDB.name = restaurant.name;
+                restaurantToDB.location = restaurant.location;
+                restaurantToDB.createdAt = DateTime.Now;
+                restaurantToDB.averageRating = 0;
+                restaurantToDB.description = restaurant.description;
+                restaurantToDB.foodType = restaurant.foodType;
+                restaurantToDB.restrictions = restaurant.restrictions;
 
-            if (!ModelState.IsValid) {
-                return RedirectToAction("Create", restaurant);
+                db.Restaurant.Add(restaurantToDB);
+                db.SaveChanges();
+
+                return RedirectToAction("Success");
             }
+            return RedirectToAction("Create", restaurant);
+        }
 
-
-            db.Restaurant.Add(restaurant);
-
-            // create a new restaurant to also include default values
-            Restaurant restaurantToDB = new Restaurant();
-
-            restaurantToDB.name = restaurant.name;
-            restaurantToDB.location = restaurant.location;
-            restaurantToDB.createdAt = DateTime.Now;
-            restaurantToDB.averageRating = 0;
-            restaurantToDB.description = restaurant.description;
-            restaurantToDB.foodType = restaurant.foodType;
-            restaurantToDB.restrictions = restaurant.restrictions;
-
-
-            db.SaveChanges();
-            return RedirectToAction("Index");
-
+        public ActionResult Success() {
+            return View();
         }
 
         // GET: Restaurant/Edit/5

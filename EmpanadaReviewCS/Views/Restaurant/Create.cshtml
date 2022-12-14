@@ -9,74 +9,81 @@
     <title>Create</title>
 </head>
 <body>
-    <form action="~/Restaurant/Save" method="post">
-        <div class="row">
+    <form action="~/Restaurant/Save" method="post" class="restaurant-edit-container">
 
-            <div class="form-horizontal">
-                <h4>Restaurant</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.location, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.location, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.location, "", new { @class = "text-danger" })
-                    </div>
+
+            <div class="review-edit-card">
+                <div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.idRestaurant)
                 </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.name)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.EditorFor(model => model.name, "", new { @class = "review-edit-item-input" })
+                        </div>
                         @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.description)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.EditorFor(model => model.description, "", new { @class = "review-edit-item-input" })
+                        </div>
                         @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.foodType, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.foodType, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.foodType)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.EditorFor(model => model.foodType, "", new { @class = "review-edit-item-input" })
+                        </div>
                         @Html.ValidationMessageFor(model => model.foodType, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.hasAllergies, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.hasAllergies, new SelectList(new List<SelectListItem>
-                        {
-                            new SelectListItem { Text = "No", Value = "0" },
-                            new SelectListItem { Text = "Yes", Value = "1" }
-                        }, "Value", "Text"), new { @class = "form-control" })
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.hasAllergies, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="review-edit-item-input">
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.hasAllergies, new SelectList(new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "No", Value = "0" },
+                                    new SelectListItem { Text = "Yes", Value = "1" }
+                                }, "Value", "Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.hasAllergies, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                         @Html.ValidationMessageFor(model => model.hasAllergies, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.restrictions, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.restrictions, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="review-edit-item">
+                    <div>
+                        <div class="review-edit-item-label">
+                            @Html.LabelFor(model => model.restrictions)
+                        </div>
+                        <div class="review-edit-item-input">
+                            @Html.EditorFor(model => model.restrictions, "", new { @class = "review-edit-item-input" })
+                        </div>
                         @Html.ValidationMessageFor(model => model.restrictions, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
+                <div class="review-edit-item">
+                    <input type="submit" value="Save" class="review-edit-button" />
                 </div>
             </div>
-        </div>
     </form>
 
     <div>

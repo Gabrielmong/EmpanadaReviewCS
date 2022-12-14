@@ -9,101 +9,82 @@
     <title>Details</title>
 </head>
 <body>
-    <div>
-        <h2 class="restaurant-text">Restaurant</h2>
-        <hr />
-        <table  class="table-container">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.location)
-                </th>
+    <div class="profile-container">
+        <div class="restaurant-body">
+            <div class="profile-title">
+                <h4>Restaurant</h4>
+            </div>
+            <div class="profile-username">
+                @Html.DisplayFor(model => model.name)
+            </div>
+            <div class="profile-info">
+                <div class="profile-info-left">
 
-                <th>
-                    @Html.DisplayNameFor(model => model.averageRating)
-                </th>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.description)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.createdAt)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.averageRating)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.foodType)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.hasAllergies)
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayNameFor(model => model.restrictions)
+                    </div>
+                </div>
+                <div class="profile-info-right">
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.description)
+                    </div>
+                    <div class="profile-info-item">
+                        @ViewBag.createdAt
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.averageRating) / 5 ⭐
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.foodType)
+                    </div>
+                    <div class="profile-info-item">
+                        @if (Model.hasAllergies == 0) {
+                            <p>No</p>
+                        } else {
+                            <p>Yes</p>
+                        }
+                    </div>
+                    <div class="profile-info-item">
+                        @Html.DisplayFor(model => model.restrictions)
+                    </div>
+                </div>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.name)
+            </div>
+            <div class="profile-buttons-container">
+                <div class="profile-buttons-bottom">
+                    <div>
+                        @if ((string)Session["role"] == "admin") {
 
-                <th>
-                    @Html.DisplayNameFor(model => model.description)
-                </th>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.idRestaurant })
+                        }
 
-                <th>
-                    @Html.DisplayNameFor(model => model.createdAt)
-                </th>
+                        @Html.ActionLink("Back to List", "Index")
 
-                <th>
-                    @Html.DisplayNameFor(model => model.updatedAt)
-                </th>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.imageSrc)
-                </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.foodType)
-                </th>
+        </div>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.hasAllergies)
-                </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.restrictions)
-                </th>
-            </tr>
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => model.location)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.averageRating)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.name)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.description)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.createdAt)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.updatedAt)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.imageSrc)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.foodType)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.hasAllergies)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.restrictions)
-                </td>
-            </tr>
-        </table>
     </div>
-    <div class="restaurant-button-container">
-        <p class="restaurant-card-button restaurant-edit">
-            @Html.ActionLink("Edit", "Edit", new { id = Model.idRestaurant })
-        </p>
-        <p class="restaurant-card-button">
-            @Html.ActionLink("Back to List", "Index")
-        </p>
-    </div>
+    
 </body>
 </html>

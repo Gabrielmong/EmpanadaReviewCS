@@ -43,7 +43,7 @@
                         Rating
                     </div>
                     <div>
-                        @ViewBag.Rating
+                        @ViewBag.Rating / 5 ⭐
                     </div>
                 </div>
                 <div class="review-single-info-item">
@@ -51,17 +51,20 @@
                         @Html.DisplayNameFor(model => model.createdAt)
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.createdAt)
+                        @ViewBag.createdAt
                     </div>
                 </div>
-                <div class="review-single-info-item">
-                    <div>
-                        @Html.DisplayNameFor(model => model.updatedAt)
+                @if (Model.createdAt != Model.updatedAt) {
+                    <div class="review-single-info-item">
+                        <div>
+                            @Html.DisplayNameFor(model => model.updatedAt)
+                        </div>
+                        <div>
+                            @ViewBag.updatedAt
+                        </div>
                     </div>
-                    <div>
-                        @Html.DisplayFor(model => model.updatedAt)
-                    </div>
-                </div>
+                }
+
             </div>
             <div class="review-single-body">
                 <div>

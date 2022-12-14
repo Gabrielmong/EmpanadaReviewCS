@@ -421,7 +421,7 @@ label {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: calc(100% - 70px)
+    height: 100%
 }
 
 .reviews-scroll {
@@ -736,7 +736,7 @@ label {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: calc(100% - 70px)
+    height: 100%
 }
 
 .restaurant-scroll {
@@ -746,6 +746,7 @@ label {
     justify-content: flex-start;
     align-items: center;
     width: 60%;
+    
 }
 
 .restaurant-card {
@@ -835,3 +836,80 @@ th {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+/* Success start */
+
+.success-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.success-title {
+    font-size: 6rem;
+    color: #774108;
+}
+
+.success-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-align-items: inherit;
+    align-items: inherit;
+    font-size: 1.5rem;
+    color: #727272;
+}
+
+.success-link {
+    font-size: 1.5rem;
+    color: #774108;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+/* Success end */
+
+/* Restaurant start */
+
+.restaurant-edit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 58px);
+    width: 100%;
+}
+
+.restaurant-delete-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 58px);
+    width: 100%;
+}
+
+.restaurant-delete-title {
+    font-size: 2rem;
+    color: #774108;
+}
+
+.restaurant-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%;
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+
+/* Restaurant end */

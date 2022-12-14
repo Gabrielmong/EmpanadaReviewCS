@@ -27,7 +27,7 @@
                     <div class="review-card-body">
                         <div class="review-card-item">
                             <p>Average Rating</p>
-                            @Html.DisplayFor(modelItem => item.averageRating)
+                            @Html.DisplayFor(modelItem => item.averageRating) / 5 ⭐
                         </div>
                         <div class="review-card-item">
                             <p>Name</p>
@@ -42,9 +42,13 @@
                             @Html.DisplayFor(modelItem => item.foodType)
                         </div>
                         <div class="review-card-item">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                            @if ((string)Session["role"] == "admin") {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+                            }
                             @Html.ActionLink("Details", "Details", new { id = item.idRestaurant }, new { @class = "review-card-button" })
-                            @Html.ActionLink("Delete", "Delete", new { id = item.idRestaurant }, new { @class = "review-card-button" })
+
+
                         </div>
 
                     </div>

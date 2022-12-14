@@ -237,7 +237,8 @@ namespace EmpanadaReviewCS.Controllers {
             ViewBag.Location = db.Restaurant.Find(reviewModel.idRestaurant).location;
             ViewBag.UserName = db.UserEmpanada.Find(reviewModel.idUser).userName;
             ViewBag.UserId = db.UserEmpanada.Find(reviewModel.idUser).idUser;
-
+            ViewBag.createdAt = review.createdAt.ToString("MMMM dd, yyyy");
+            ViewBag.updatedAt = review.updatedAt?.ToString("MMMM dd, yyyy");
 
             return View(reviewModel);
         }

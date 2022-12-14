@@ -37,6 +37,8 @@ namespace EmpanadaReviewCS.Controllers {
         // GET: Restaurant/Details/5
         public ActionResult Details(int? id) {
             var restaurant = db.Restaurant.Find(id);
+
+            ViewBag.createdAt = restaurant.createdAt.ToString("MMMM dd, yyyy");
             return View(restaurant);
         }
 
@@ -50,6 +52,8 @@ namespace EmpanadaReviewCS.Controllers {
             if (restaurant == null) {
                 restaurant = new Restaurant();
             }
+
+    
 
             return View();
         }

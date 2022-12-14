@@ -8,6 +8,9 @@
     </div>
     <div class="home-welcome">
         <h5 class="home-welcome-text">@ViewBag.Message</h5>
+        @if ((string)Session["role"] == "admin") {
+            <p class="home-lead-text">You're an admin.</p>
+        }
     </div>
     <div class="home-lead">
         <p class="home-lead-text">

@@ -12,12 +12,21 @@ namespace EmpanadaReviewCS.Controllers {
 
         // index
         public ActionResult Index() {
+
+            if ((string)Session["role"] != "admin") {
+                return RedirectToAction("Login", "Home");
+            }
+            
             var users = db.UserEmpanada.ToList();
             return View(users);
         }
 
         // GET: User
         public ActionResult Create(Models.ViewModel.UserModel user) {
+
+            if ((string)Session["role"] != "admin") {
+                return RedirectToAction("Login", "Home");
+            }
 
             if (user == null) {
                 user = new Models.ViewModel.UserModel();
@@ -64,15 +73,11 @@ namespace EmpanadaReviewCS.Controllers {
                 return RedirectToAction("Index");
             }
 
-            var user = db.UserEmpanada.Find(id);
-
-                if (User.Identity.IsAuthenticated == false) {
-                    return RedirectToAction("Login", "Home");
-                }
-
-                if (User.Identity.Name != user.userName) {
-                    return RedirectToAction("Error");
+            if ((string)Session["role"] != "admin") {
+                return RedirectToAction("Login", "Home");
             }
+
+            var user = db.UserEmpanada.Find(id);
             
             var userModel = new Models.ViewModel.UserModel {
                 idUser = user.idUser,
@@ -85,6 +90,7 @@ namespace EmpanadaReviewCS.Controllers {
                 imageSrc = user.imageSrc,
                 phoneNumber = user.phoneNumber,
                 email = user.email,
+                role = user.role
 
             };
 
@@ -104,10 +110,11 @@ namespace EmpanadaReviewCS.Controllers {
             userToUpdate.password = user.password;
             userToUpdate.lastName = user.lastName;
             userToUpdate.bio = user.bio;
-            userToUpdate.createdAt = user.createdAt;
             userToUpdate.imageSrc = user.imageSrc;
             userToUpdate.phoneNumber = user.phoneNumber;
             userToUpdate.email = user.email;
+            userToUpdate.role = user.role;
+
             if (user.gender != null) {
                 userToUpdate.gender = user.gender;
             }
@@ -126,6 +133,10 @@ namespace EmpanadaReviewCS.Controllers {
 
         // GET: User/Delete/5
         public ActionResult Delete(int? id) {
+
+            if ((string)Session["role"] != "admin") {
+                return RedirectToAction("Login", "Home");
+            }
 
             if (id == null) {
                 return RedirectToAction("Index");

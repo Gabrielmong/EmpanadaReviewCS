@@ -22,7 +22,7 @@ namespace EmpanadaReviewCS.Models.ViewModel
         public string password { get; set; }
 
         [Required(ErrorMessage = "Must add a Password")]
-        [Display(Name = "Password")]
+        [Display(Name = "Confirm Password")]
         public string confirmPassword { get; set; }
 
         [Required(ErrorMessage = "Must add a First Name")]
@@ -66,6 +66,9 @@ namespace EmpanadaReviewCS.Models.ViewModel
 
         [Display(Name = "Reviews")]
         public Nullable<int> reviews { get; set; }
+
+        [Display(Name = "Privileges")]
+        public string role { get; set; }
 
     }
 }

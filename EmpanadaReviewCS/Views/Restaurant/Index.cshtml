@@ -22,7 +22,7 @@
             {
                 <div class="restaurant-card">
                     <div class="review-card-title">
-                        @Html.DisplayFor(modelItem => item.location)
+                        @Html.DisplayFor(modelItem => item.name)
                     </div>
                     <div class="review-card-body">
                         <div class="review-card-item">
@@ -30,12 +30,8 @@
                             @Html.DisplayFor(modelItem => item.averageRating) / 5 ⭐
                         </div>
                         <div class="review-card-item">
-                            <p>Name</p>
-                            @Html.DisplayFor(modelItem => item.name)
-                        </div>
-                        <div class="review-card-item">
-                            <p>Description</p>
-                            @Html.DisplayFor(modelItem => item.description)
+                            <p>Location</p>
+                            @Html.DisplayFor(modelItem => item.location)
                         </div>
                         <div class="review-card-item">
                             <p>Food type</p>

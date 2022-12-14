@@ -173,7 +173,10 @@ namespace EmpanadaReviewCS.Controllers {
                 return RedirectToAction("Index");
             }
 
+            
             var review = db.Review.Find(id);
+            var user = db.UserEmpanada.Find(review.idUser);
+
             var reviewModel = new Models.Review {
                 idReview = review.idReview,
                 idUser = review.idUser,
@@ -184,7 +187,8 @@ namespace EmpanadaReviewCS.Controllers {
                 updatedAt = review.updatedAt,
                 imageSrc = review.imageSrc,
                 idRestaurant = review.idRestaurant,
-                likes = review.likes
+                likes = review.likes,
+                UserEmpanada = user
             };
 
 

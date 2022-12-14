@@ -168,6 +168,7 @@ namespace EmpanadaReviewCS.Controllers {
                 userFromDb.userName = user.userName;
                 userFromDb.password = user.password;
                 userFromDb.firstName = user.firstName;
+                userFromDb.bio = user.bio;
                 userFromDb.updatedAt = DateTime.Now;
                 userFromDb.lastName = user.lastName;
                 userFromDb.email = user.email;

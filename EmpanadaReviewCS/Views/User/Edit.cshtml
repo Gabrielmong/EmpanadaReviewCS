@@ -13,58 +13,59 @@
 </head>
 <body>
 
-    <div class="form-horizontal">
+    <div class="user-admin-container">
         <h4>Edit user info</h4>
         <hr />
 
-        <form action="~/User/Edit" method="post">
-            <div class="row">
+        <form action="~/User/Edit" method="post" class="user-admin-card">
+            <div class="user-admin-items">
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.idUser)
 
-                <br />
-                @Html.LabelFor(model => model.userName)
-                @Html.EditorFor(model => model.userName, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.password)
-                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.confirmPassword)
-                @Html.PasswordFor(model => model.confirmPassword, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.firstName)
-                @Html.EditorFor(model => model.firstName, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.lastName)
-                @Html.EditorFor(model => model.lastName, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.bio)
-                @Html.EditorFor(model => model.bio, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.bio, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.imageSrc)
-                @Html.EditorFor(model => model.imageSrc, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.imageSrc, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.phoneNumber)
-                @Html.EditorFor(model => model.phoneNumber, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.email)
-                @Html.EditorFor(model => model.email, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-                <br />
-                @Html.LabelFor(model => model.gender)
-                @Html.EditorFor(model => model.gender, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.userName, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.userName, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                </div>
 
-                <input type="submit" value="Save" />
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.password, new { @class = "user-admin-label" })
+                    @Html.PasswordFor(model => model.password, new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.confirmPassword, new { @class = "user-admin-label" })
+                    @Html.PasswordFor(model => model.confirmPassword, new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.firstName, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.firstName, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.lastName, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.lastName, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.bio, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.bio, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.bio, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.email, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.email, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+                <div class="user-admin-item">
+                    @Html.LabelFor(model => model.role, new { @class = "user-admin-label" })
+                    @Html.EditorFor(model => model.role, "", new { @class = "user-admin-input" })
+                    @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+                </div>
+
+                <input type="submit" value="Save" class="user-admin-button" />
 
             </div>
         </form>

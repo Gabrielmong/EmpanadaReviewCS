@@ -1,0 +1,106 @@
+﻿@model EmpanadaReviewCS.Models.UserEmpanada
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="admin-user-details-container">
+        <h4>User</h4>
+        <div class="admin-user-details-body">
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.idUser)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.idUser)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.userName)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.userName)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.firstName)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.lastName)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.bio)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.bio)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.createdAt)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.createdAt)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.updatedAt)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.updatedAt)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.email)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.email)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.reviews)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.reviews)
+                </div>
+            </div>
+            <div class="admin-user-details-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.role)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.role)
+                </div>
+            </div>
+
+
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.idUser }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

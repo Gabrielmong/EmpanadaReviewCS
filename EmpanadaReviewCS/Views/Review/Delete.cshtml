@@ -9,92 +9,56 @@
     <title>Delete</title>
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Review</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.title)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.title)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.description)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.description)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.createdAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.createdAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.updatedAt)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.updatedAt)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.imageSrc)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.imageSrc)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.likes)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.likes)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Rating.idRating)
-            </dt>
-    
-            <dd>
-                @ViewBag.Rating
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Restaurant.location)
-            </dt>
-    
-            <dd>
-                @ViewBag.Location
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UserEmpanada.userName)
-            </dt>
-    
-            <dd>
-                @ViewBag.Rating
-            </dd>
-    
-        </dl>
-    
-        <form action="~/Review/DeleteReview" method="post">
-            @Html.HiddenFor(model => model.idReview)
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+    <div class="admin-user-delete-container">
+        <div class="restaurant-delete-title">
+            <h3>Are you sure you want to delete this review?</h3>
+        </div>
+
+        <div class="admin-user-delete-body">
+            <h4>Restaurant</h4>
+            <div class="admin-user-delete-items">
+                <div class="admin-user-delete-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.title)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.title)
+                    </div>
+                </div>
+
+                <div class="admin-user-delete-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.UserEmpanada.userName)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.UserEmpanada.userName)
+                    </div>
+                </div>
+                <div class="admin-user-delete-item">
+                    <div>
+                        @Html.DisplayNameFor(model => model.createdAt)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.createdAt)
+                    </div>
+                </div>
             </div>
-        </form>
-</div>
+            <div class="admin-user-delete-item">
+                <div>
+                    @Html.DisplayNameFor(model => model.updatedAt)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.updatedAt)
+                </div>
+            </div>
+            <form action="~/Review/DeleteReview" method="post">
+                @Html.HiddenFor(model => model.idReview)
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="admin-user-delete-button" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

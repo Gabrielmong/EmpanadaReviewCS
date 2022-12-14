@@ -30,6 +30,9 @@
                     <div>@Html.ActionLink("Register", "Register", "Home")</div>
                     <div>@Html.ActionLink("Login", "Login", "Home")</div>
                 }
+                @if ((string)Session["role"] == "admin") {
+                    <div>@Html.ActionLink("Users", "Index", "User")</div>
+                }
             </div>
         </div>
     </div>

@@ -51,11 +51,8 @@ namespace EmpanadaReviewCS.Controllers {
 
             if (restaurant == null) {
                 restaurant = new Restaurant();
-
                 restaurant.createdAt = DateTime.Now.Date;
                 restaurant.averageRating = 0;
-                
-                
             }
             
             return View();
